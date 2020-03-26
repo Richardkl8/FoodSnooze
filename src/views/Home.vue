@@ -1,6 +1,6 @@
 <template>
-    <div class="home">
-        <RecipeCard></RecipeCard>
+    <div>
+        <recipe-card></recipe-card>
     </div>
 </template>
 
@@ -9,8 +9,31 @@
 
     export default {
         name: 'Home',
+        inject: [
+            'apiService',
+        ],
         components: {
             RecipeCard,
         },
+        data() {
+            return {
+                recipe: {},
+            };
+        },
+        methods: {
+            getRandomRecipe() {
+                console.log(1);
+                this.apiService.getRandomRecipe()
+                    .then((response) => {
+                        console.log(response);
+                    }).catch(() => {});
+            },
+        },
+        mounted() {
+            this.getRandomRecipe();
+        },
     };
 </script>
+
+<style lang="scss" scoped>
+</style>

@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <custom-header></custom-header>
-        <router-view/>
+        <router-view class="container"/>
         <custom-footer></custom-footer>
     </div>
 </template>
@@ -19,12 +19,11 @@
 </script>
 
 <style lang="scss">
+
     *,
     *::after,
     *::before {
         box-sizing: inherit;
-        margin: 0;
-        padding: 0;
         font-family: Montserrat, serif;
     }
 
