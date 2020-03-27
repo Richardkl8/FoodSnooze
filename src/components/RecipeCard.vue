@@ -1,5 +1,5 @@
 <template>
-    <div class="recipe-card">
+    <div v-if="recipe" class="recipe-card">
         <img alt="recipe-image"
              class="recipe-image"
              :src="recipe.strMealThumb">
@@ -7,14 +7,14 @@
             <custom-h2>
                 <b>{{recipe.strMeal}}</b>
             </custom-h2>
-            <custom-h3>
+            <custom-h3 v-if="isRelatedFoods">
                 {{recipe.strCategory}}
             </custom-h3>
-            <custom-h3>
+            <custom-h3 v-if="isRelatedFoods">
                 {{recipe.strTags}}
             </custom-h3>
         </div>
-        <div class="separator"></div>
+        <div v-if="isRelatedFoods" class="separator"></div>
     </div>
 </template>
 
@@ -23,6 +23,10 @@
         props: {
             recipe: {
                 type: Object,
+            },
+            isRelatedFoods: {
+                type: Boolean,
+                default: false,
             },
         },
         computed: {
