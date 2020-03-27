@@ -11,7 +11,7 @@
                     id="search"
                     placeholder="search for recipes"
                     v-model="query"
-                    @keyup.enter="goToSearchPage(query)"/>
+                    @keydown.enter="goToSearchPage(query)"/>
             </div>
         </div>
     </header>
@@ -35,8 +35,8 @@
                 // Only executes when the query is different then the current query
                 if (this.$route.params.query !== query && query) {
                     this.$router.push(`/search/${query}`);
-                    this.query = '';
                 }
+                this.query = '';
             },
         },
     };

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomFooter Should match snapshot 1`] = `
+<footer>
+  <div class="container">
+    <custom-h3-stub>
+      FoodSnooze
+    </custom-h3-stub>
+  </div>
+</footer>
+`;

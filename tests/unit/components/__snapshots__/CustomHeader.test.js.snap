@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomHeader Should match snapshot 1`] = `
+<header>
+  <div class="container">
+    <div class="flex-box">
+      <custom-h1-stub class="text-white">
+        <router-link-stub to="/"><b>FoodSnooze</b></router-link-stub>
+      </custom-h1-stub> <input id="search" placeholder="search for recipes">
+    </div>
+  </div>
+</header>
+`;
+
+exports[`CustomHeader Should reset query when route changes 1`] = `
+<header>
+  <div class="container">
+    <div class="flex-box">
+      <custom-h1-stub class="text-white">
+        <router-link-stub to="/"><b>FoodSnooze</b></router-link-stub>
+      </custom-h1-stub> <input id="search" placeholder="search for recipes">
+    </div>
+  </div>
+</header>
+`;
