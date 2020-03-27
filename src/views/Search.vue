@@ -44,7 +44,6 @@
         ],
         watch: {
             $route() {
-                console.log(1);
                 this.getRecipeByQuery(this.$route.params.query);
             },
         },

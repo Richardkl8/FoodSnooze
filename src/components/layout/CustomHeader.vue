@@ -25,11 +25,17 @@
                 query: '',
             };
         },
+        watch: {
+            $router() {
+                this.query = '';
+            },
+        },
         methods: {
             goToSearchPage(query) {
                 // Only executes when the query is different then the current query
                 if (this.$route.params.query !== query && query) {
                     this.$router.push(`/search/${query}`);
+                    this.query = '';
                 }
             },
         },
