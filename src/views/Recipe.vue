@@ -58,7 +58,10 @@
                 <div v-for="index in 4"
                      :key="index"
                      class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
-                    <recipe-card :recipe="relatedMeals[index]"></recipe-card>
+                    <recipe-card
+                        :recipe="relatedMeals[index]"
+                        @click.native="$_goToRecipePage(relatedMeals[index].idMeal)">
+                    </recipe-card>
                 </div>
             </div>
         </section>
@@ -67,12 +70,16 @@
 
 <script>
     import RecipeCard from '@/components/RecipeCard.vue';
+    import goToPageMixin from '../mixins/goToPageMixin';
 
     export default {
         name: 'Home',
         components: {
             RecipeCard,
         },
+        mixins: [
+            goToPageMixin,
+        ],
         inject: [
             'apiService',
         ],
@@ -82,6 +89,11 @@
                 relatedMeals: [],
                 videoUrl: '',
             };
+        },
+        watch: {
+            $route() {
+                this.getRecipeById();
+            },
         },
         methods: {
             getRecipeById() {
