@@ -1,8 +1,8 @@
 <template>
     <header>
-        <label for="search">
+        <div class="container">
             <input id="search" placeholder="search for recipes">
-        </label>
+        </div>
     </header>
 </template>
 
@@ -15,24 +15,23 @@
 <style lang="scss" scoped>
     header {
         background-color: #2DB396;
-        width: 100%;
+        width: 100vw;
         height: 10rem;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
     }
 
     input {
-        width: 100%;
+        max-width: 100%;
         padding: 1rem 2rem;
         font-size: 2rem;
         border: none;
         border-radius: 2rem;
-        box-sizing: border-box;
 
         &:hover {
-           cursor: text;
+            cursor: text;
         }
     }
 </style>

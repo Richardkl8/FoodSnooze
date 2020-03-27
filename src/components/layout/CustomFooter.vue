@@ -1,8 +1,10 @@
 <template>
     <footer>
-        <custom-h1>
-            FoodSnooze
-        </custom-h1>
+        <div class="container">
+            <custom-h3>
+                FoodSnooze
+            </custom-h3>
+        </div>
     </footer>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <custom-header></custom-header>
-        <router-view class="container"/>
+        <router-view/>
         <custom-footer></custom-footer>
     </div>
 </template>
@@ -28,6 +28,8 @@
     }
 
     html {
+        height: 100%;
+        width: 100%;
         font-size: 62.5%;
 
         @media only screen and (max-width: 56.25em) { //900 px
@@ -42,8 +44,17 @@
     }
 
     body {
+        height: 100%;
+        width: 100%;
         font-family: Montserrat, serif;
         box-sizing: border-box;
+    }
+
+    #app {
+        min-height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 100%;
     }
 
     .text-white {

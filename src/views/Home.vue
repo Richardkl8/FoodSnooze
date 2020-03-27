@@ -1,6 +1,36 @@
 <template>
-    <div>
-        <recipe-card></recipe-card>
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-6">
+                <custom-h1>
+                    Welcome!
+                </custom-h1>
+                <custom-h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis non libero vitae
+                        dictum.
+                        Maecenas id lacinia eros. Maecenas in leo nisi. Aenean pharetra lectus vitae urna bibendum, nec
+                        condimentum ante molestie. Vestibulum at lacus auctor, ornare tellus at, vehicula mi. Proin eget
+                        nulla diam. Nulla facilisi. In hac habitasse platea dictumst. Aliquam et congue magna. Cras odio
+                        tellus, volutpat sed velit eu, accumsan tempus tellus. Aliquam malesuada elit leo, ut rutrum
+                        felis
+                        egestas eu.
+                    </p>
+                </custom-h3>
+                <custom-button
+                    class="center"
+                    text="randomize!"
+                    @click.native="getRandomRecipe">
+                </custom-button>
+            </div>
+            <div class="col-6">
+                <recipe-card
+                    v-show="recipe"
+                    :recipe="recipe">
+                </recipe-card>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -21,15 +51,15 @@
             };
         },
         methods: {
-            getRandomRecipe() {
-                console.log(1);
+            async getRandomRecipe() {
                 this.apiService.getRandomRecipe()
                     .then((response) => {
-                        console.log(response);
-                    }).catch(() => {});
+                        this.recipe = response;
+                        console.log(this.recipe);
+                    });
             },
         },
-        mounted() {
+        created() {
             this.getRandomRecipe();
         },
     };
