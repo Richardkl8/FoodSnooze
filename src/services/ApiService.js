@@ -49,6 +49,19 @@ class ApiService {
         });
     }
 
+    getRecipeByQuery(query) {
+        return new Promise((resolve, reject) => {
+            this.https.get(`${this.endPoints.getRecipeByQuery}?s=${query}`)
+                .then((response) => {
+                    resolve(response.data.meals);
+                })
+                .catch((error) => {
+                    reject(error);
+                    this.onError(error);
+                });
+        });
+    }
+
      onError(error) {
          console.log(error);
          // TODO: push to error page
