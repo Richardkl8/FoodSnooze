@@ -38,6 +38,20 @@
                 </div>
             </div>
         </section>
+        <section id="video">
+            <custom-h2 class="mb-4"><b>Checkout the video</b></custom-h2>
+            <div class="row my-5">
+                <div class="col">
+<!--                    TODO: create class for this-->
+                    <iframe id="recipe-video"
+                            width="100%"
+                            height="600"
+                            :src="videoUrl"
+                            frameborder="0" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
         <section id="relatedFoods">
             <custom-h2 class="mb-4"><b>You may also like</b></custom-h2>
             <div class="row my-5">
@@ -66,6 +80,7 @@
             return {
                 recipe: {},
                 relatedMeals: [],
+                videoUrl: '',
             };
         },
         methods: {
@@ -74,6 +89,7 @@
                     .then((response) => {
                         this.recipe = response;
                         this.getRecipeByCategory(response.strCategory);
+                        this.setYoutubeEmbedUrl(response.strYoutube);
                     });
             },
             getRecipeByCategory(category) {
@@ -81,6 +97,11 @@
                     .then((response) => {
                         this.relatedMeals = response;
                     });
+            },
+            // Youtube does not let you play video on your website without embedding them,
+            // Therefore the url needs to be edited
+            setYoutubeEmbedUrl() {
+                this.videoUrl = this.recipe.strYoutube.replace('/watch?v=', '/embed/');
             },
             returnListOfIngredients() {
                 const entries = Object.entries(this.recipe);
@@ -126,11 +147,6 @@
 
     li {
         margin: 1rem 0;
-    }
-
-    hr {
-        margin-top: 1rem;
-        border: solid 1px #2DB396;
     }
 
     .ingredients {
