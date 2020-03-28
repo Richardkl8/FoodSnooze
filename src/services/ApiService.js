@@ -23,6 +23,24 @@ class ApiService {
         });
     }
 
+    getRandomRecipes() {
+        return new Promise((resolve, reject) => {
+            axios.all([
+                this.https.get(this.endPoints.getRandomRecipe),
+                this.https.get(this.endPoints.getRandomRecipe),
+                this.https.get(this.endPoints.getRandomRecipe),
+            ]).then(axios.spread((first, second, third) => {
+                const listOfRecipes = [];
+                listOfRecipes.push(first.data.meals[0], second.data.meals[0], third.data.meals[0]);
+                console.log(listOfRecipes);
+                resolve(listOfRecipes);
+            })).catch((error) => {
+                reject(error);
+                this.onError(error);
+            });
+        });
+    }
+
     getRecipeById(recipeId) {
         return new Promise((resolve, reject) => {
             this.https.get(`${this.endPoints.getRecipeById}?i=${recipeId}`)
