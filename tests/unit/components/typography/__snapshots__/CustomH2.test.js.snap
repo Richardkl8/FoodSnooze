@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomH2 Should match snapshot 1`] = `<h2>Test text</h2>`;
+
+exports[`CustomH2 Should show text when text is injected in slot: Test text 1`] = `"Test text"`;

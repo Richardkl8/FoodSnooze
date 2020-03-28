@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import CustomHeader from '../../../src/components/layout/CustomHeader.vue';
+import CustomHeader from '../../../../src/components/layout/CustomHeader.vue';
 
 const mocks = {
     $router: {
