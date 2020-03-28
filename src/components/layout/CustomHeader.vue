@@ -3,8 +3,9 @@
         <div class="container">
             <div class="flex-box">
                 <custom-h1 class="text-white">
-                    <router-link to="/">
-                        <b>FoodSnooze</b>
+                    <router-link class="text-white" to="/">
+                        <b id="title">FoodSnooze</b>
+                        <b id="title-mobile">FS</b>
                     </router-link>
                 </custom-h1>
                 <input
@@ -51,12 +52,13 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        color: #fff;
     }
 
     input {
         width: 40rem;
         padding: 1rem 2rem;
-        font-size: 1.8rem;
+        font-size: 1.75rem;
         border: none;
         border-radius: 2rem;
 
@@ -65,14 +67,25 @@
         }
     }
 
-    a {
-        color: white
-    }
-
     .flex-box {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+
+    #title-mobile {
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        #title {
+            display: none;
+        }
+
+        #title-mobile {
+            display: block;
+            margin-right: 1rem;
+        }
     }
 </style>
