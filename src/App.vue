@@ -19,12 +19,13 @@
 </script>
 
 <style lang="scss">
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
 
     *,
     *::after,
     *::before {
         box-sizing: inherit;
-        font-family: Montserrat, serif;
+        font-family: Montserrat, sans-serif;
     }
 
     html {
@@ -32,14 +33,14 @@
         width: 100%;
         font-size: 62.5%;
 
-        @media only screen and (max-width: 56.25em) { //900 px
-            font-size: 50%;
-        }
-        @media only screen and (max-width: 75em) { //1200px
+        @media only screen and (max-width: 900px) {
             font-size: 56.25%;
         }
-        @media only screen and (min-width: 112.5em) { //1800px
-            font-size: 75%;
+        @media only screen and (max-width: 1200px) {
+            font-size: 56.25%;
+        }
+        @media only screen and (min-width: 1800px) {
+            font-size: 70%;
         }
     }
 

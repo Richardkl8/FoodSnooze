@@ -16,6 +16,7 @@
 
 <style lang="scss" scoped>
     footer {
+        margin-top: 3rem;
         background-color: #2DB396;
         width: 100%;
         height: 10rem;

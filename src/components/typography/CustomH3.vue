@@ -12,7 +12,7 @@
 
 <style scoped>
     h3 {
-        font-size: 1.6rem;
+        font-size: 1.75rem;
         color: #071E22;
     }
 </style>
