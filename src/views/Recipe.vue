@@ -5,7 +5,7 @@
                 <div class="col-sm-12 col-md-6">
                     <img :src="recipe.strMealThumb"
                          alt="recipe-image"
-                         class="recipe-image">
+                         class="recipe-image mb-4">
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <custom-h2>
@@ -13,36 +13,44 @@
                             {{recipe.strMeal}}
                         </b>
                     </custom-h2>
+                    <custom-h2>
+                        {{recipe.strCategory}}
+                    </custom-h2>
+                </div>
+                <div class="ingredients col-12">
+                    <custom-h2 class="mb-4 mt-5"><b>Ingredients</b></custom-h2>
+                    <div class="row">
+                        <div v-for="ingredient in returnListOfIngredients()"
+                             :key="ingredient"
+                             class="col-md-6 col-sm-12">
+                            <custom-h3 class="text-black">
+                                <ul>
+                                    <li v-html="ingredient">
+                                    </li>
+                                    <hr>
+                                </ul>
+                            </custom-h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="how-to-cook">
+            <div class="row">
+                <div class="col-12">
+                    <custom-h2 class="mb-4">
+                        <b>How to cook</b>
+                    </custom-h2>
                     <custom-h3>
                         {{recipe.strInstructions}}
                     </custom-h3>
                 </div>
             </div>
         </section>
-        <section id="ingredients">
-            <div class="ingredients my-5">
-                <custom-h2 class="mb-4"><b>Ingredients</b></custom-h2>
-                <div class="row">
-                    <div v-for="ingredient in returnListOfIngredients()"
-                         :key="ingredient"
-                         class="col-md-6">
-                        <custom-h3 class="text-black">
-                            <ul>
-                                <li>
-                                    {{ingredient}}
-                                    <hr>
-                                </li>
-                            </ul>
-                        </custom-h3>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section v-if="videoUrl" id="video">
-            <custom-h2 class="mb-4"><b>Checkout the video</b></custom-h2>
-            <div class="row my-5">
+            <custom-h2 class="my-5"><b>Checkout the video</b></custom-h2>
+            <div class="row mb-5">
                 <div class="col">
-<!--                    TODO: create class for this-->
                     <iframe id="recipe-video"
                             :src="videoUrl"
                             frameborder="0" allowfullscreen>
@@ -51,7 +59,7 @@
             </div>
         </section>
         <section id="relatedFoods">
-            <custom-h2 class="mb-4"><b>You may also like</b></custom-h2>
+            <custom-h2 class="mt-5 mb-4"><b>You may also like</b></custom-h2>
             <div class="row my-5">
                 <div v-for="index in 3"
                      :key="index"
@@ -130,7 +138,7 @@
 
                 ingredients.forEach((ingredient, index) => {
                     if (measures[index] !== ' ') {
-                        final.push(`${ingredient} - ${measures[index]}`);
+                        final.push(`<b>${ingredient}</b> <i>${measures[index]}</i>`);
                     } else {
                         final.push(ingredient);
                     }
@@ -156,18 +164,12 @@
     }
 
     li {
-        margin: 1rem 0;
+        margin-top: .5rem;
     }
 
     #recipe-video {
         width: 100%;
         height: 60rem;
-    }
-
-    .ingredients {
-        padding: 3rem 2rem;
-        border: solid 2px #2DB396;
-        color: #fff;
     }
 
     @media screen and (max-width: 768px) {
