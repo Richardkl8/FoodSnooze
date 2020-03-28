@@ -2,7 +2,7 @@
     <div class="button">
         <div class="circle"></div>
         <a>
-            {{text}}.
+            {{text}}
         </a>
     </div>
 </template>

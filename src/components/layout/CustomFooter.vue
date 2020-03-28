@@ -1,8 +1,9 @@
 <template>
-    <footer>
+    <footer class="center">
         <div class="container">
-            <custom-h3>
-                FoodSnooze
+            <custom-h3 class="text-white">
+                <b>FoodSnooze</b><br>
+                Who doesn't like to snooze?!
             </custom-h3>
         </div>
     </footer>
@@ -20,5 +21,11 @@
         background-color: #2DB396;
         width: 100%;
         height: 10rem;
+    }
+
+    .center {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 </style>

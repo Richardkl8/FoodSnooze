@@ -7,7 +7,7 @@
                          alt="recipe-image"
                          class="recipe-image">
                 </div>
-                <div class="col-sm-12 col-md-6">
+                <div class="col-sm-12 col-md-6 recipe-title">
                     <custom-h2>
                         <b>{{recipe.strMeal}}</b>
                     </custom-h2>
@@ -29,7 +29,7 @@
                                 <ul>
                                     <li v-html="ingredient">
                                     </li>
-                                    <hr>
+                                    <hr class="ingredient-divider">
                                 </ul>
                             </custom-h3>
                         </div>
@@ -173,6 +173,14 @@
         margin-top: .5rem;
     }
 
+    hr {
+        border: 1px solid #FF6F59;
+    }
+
+    .ingredient-divider {
+        border: 1px solid #2DB396;
+    }
+
     #recipe-video {
         width: 100%;
         height: 60rem;
@@ -181,6 +189,14 @@
     @media screen and (max-width: 768px) {
         #recipe-video {
             height: 30rem;
+        }
+
+        .recipe-title {
+            margin-top: 2rem;
+        }
+
+        .recipe-image {
+            width: 75%;
         }
     }
 

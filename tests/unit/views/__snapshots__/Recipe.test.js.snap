@@ -1,230 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home Should call getRecipeById when component is created 1`] = `
-<div class="container">
-  <section id="instructions">
-    <div class="row my-5">
-      <div class="col-sm-12 col-md-6"><img alt="recipe-image" class="recipe-image" src="image.jpg"></div>
-      <div class="col-sm-12 col-md-6">
-        <custom-h2-stub><b>
-            tuna
-          </b></custom-h2-stub>
-        <custom-h2-stub>
-          fish
-        </custom-h2-stub>
-      </div>
-    </div>
-  </section>
-  <section id="ingredients">
-    <div class="row my-5">
-      <div class="col-12">
-        <custom-h2-stub class="mb-4 mt-5"><b>Ingredients</b></custom-h2-stub>
-        <div class="row">
-          <div class="col-md-6 col-sm-12">
-            <custom-h3-stub class="text-black">
-              <ul>
-                <li><b>tuna</b> <i>1</i></li>
-                <hr>
-              </ul>
-            </custom-h3-stub>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <custom-h3-stub class="text-black">
-              <ul>
-                <li><b>lemon</b> <i>2</i></li>
-                <hr>
-              </ul>
-            </custom-h3-stub>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="how-to-cook">
-    <div class="row">
-      <div class="col-12">
-        <custom-h2-stub class="mb-4"><b>How to cook</b></custom-h2-stub>
-        <custom-h3-stub>
-          Bake the tuna
-        </custom-h3-stub>
-      </div>
-    </div>
-  </section>
-  <section id="video">
-    <custom-h2-stub class="my-5"><b>Checkout the video</b></custom-h2-stub>
-    <div class="row mb-5">
-      <div class="col"><iframe id="recipe-video" src="https://www.youtube.com/embed/1ahpSTf_Pvk" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
-    </div>
-  </section>
-  <section id="relatedFoods">
-    <custom-h2-stub class="mt-5 mb-4"><b>You may also like</b></custom-h2-stub>
-    <div class="row my-5">
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub recipe="[object Object]"></recipe-card-stub>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub></recipe-card-stub>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub></recipe-card-stub>
-      </div>
-    </div>
-  </section>
-</div>
-`;
-
-exports[`Home Should call getRecipeById, getRecipeByCategorySpy and setYoutubeEmbedUrl when component is created 1`] = `
-<div class="container">
-  <section id="instructions">
-    <div class="row my-5">
-      <div class="col-sm-12 col-md-6"><img alt="recipe-image" class="recipe-image" src="image.jpg"></div>
-      <div class="col-sm-12 col-md-6">
-        <custom-h2-stub><b>
-            tuna
-          </b></custom-h2-stub>
-        <custom-h2-stub>
-          fish
-        </custom-h2-stub>
-      </div>
-    </div>
-  </section>
-  <section id="ingredients">
-    <div class="row my-5">
-      <div class="col-12">
-        <custom-h2-stub class="mb-4 mt-5"><b>Ingredients</b></custom-h2-stub>
-        <div class="row">
-          <div class="col-md-6 col-sm-12">
-            <custom-h3-stub class="text-black">
-              <ul>
-                <li><b>tuna</b> <i>1</i></li>
-                <hr>
-              </ul>
-            </custom-h3-stub>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <custom-h3-stub class="text-black">
-              <ul>
-                <li><b>lemon</b> <i>2</i></li>
-                <hr>
-              </ul>
-            </custom-h3-stub>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="how-to-cook">
-    <div class="row">
-      <div class="col-12">
-        <custom-h2-stub class="mb-4"><b>How to cook</b></custom-h2-stub>
-        <custom-h3-stub>
-          Bake the tuna
-        </custom-h3-stub>
-      </div>
-    </div>
-  </section>
-  <section id="video">
-    <custom-h2-stub class="my-5"><b>Checkout the video</b></custom-h2-stub>
-    <div class="row mb-5">
-      <div class="col"><iframe id="recipe-video" src="https://www.youtube.com/embed/1ahpSTf_Pvk" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
-    </div>
-  </section>
-  <section id="relatedFoods">
-    <custom-h2-stub class="mt-5 mb-4"><b>You may also like</b></custom-h2-stub>
-    <div class="row my-5">
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub recipe="[object Object]"></recipe-card-stub>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub></recipe-card-stub>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub></recipe-card-stub>
-      </div>
-    </div>
-  </section>
-</div>
-`;
-
-exports[`Home Should match snapshot 1`] = `
-<div class="container">
-  <section id="instructions">
-    <div class="row my-5">
-      <div class="col-sm-12 col-md-6"><img alt="recipe-image" class="recipe-image" src="image.jpg"></div>
-      <div class="col-sm-12 col-md-6">
-        <custom-h2-stub><b>
-            tuna
-          </b></custom-h2-stub>
-        <custom-h2-stub>
-          fish
-        </custom-h2-stub>
-      </div>
-    </div>
-  </section>
-  <section id="ingredients">
-    <div class="row my-5">
-      <div class="col-12">
-        <custom-h2-stub class="mb-4 mt-5"><b>Ingredients</b></custom-h2-stub>
-        <div class="row">
-          <div class="col-md-6 col-sm-12">
-            <custom-h3-stub class="text-black">
-              <ul>
-                <li><b>tuna</b> <i>1</i></li>
-                <hr>
-              </ul>
-            </custom-h3-stub>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <custom-h3-stub class="text-black">
-              <ul>
-                <li><b>lemon</b> <i>2</i></li>
-                <hr>
-              </ul>
-            </custom-h3-stub>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="how-to-cook">
-    <div class="row">
-      <div class="col-12">
-        <custom-h2-stub class="mb-4"><b>How to cook</b></custom-h2-stub>
-        <custom-h3-stub>
-          Bake the tuna
-        </custom-h3-stub>
-      </div>
-    </div>
-  </section>
-  <section id="video">
-    <custom-h2-stub class="my-5"><b>Checkout the video</b></custom-h2-stub>
-    <div class="row mb-5">
-      <div class="col"><iframe id="recipe-video" src="https://www.youtube.com/embed/1ahpSTf_Pvk" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
-    </div>
-  </section>
-  <section id="relatedFoods">
-    <custom-h2-stub class="mt-5 mb-4"><b>You may also like</b></custom-h2-stub>
-    <div class="row my-5">
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub recipe="[object Object]"></recipe-card-stub>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub></recipe-card-stub>
-      </div>
-      <div class="col-xs-12 col-md-4">
-        <recipe-card-stub></recipe-card-stub>
-      </div>
-    </div>
-  </section>
-</div>
-`;
-
 exports[`Recipe page Should match snapshot 1`] = `
 <div class="container">
   <section id="instructions">
     <div class="row my-5">
       <div class="col-sm-12 col-md-6"><img alt="recipe-image" class="recipe-image" src="image.jpg"></div>
-      <div class="col-sm-12 col-md-6">
+      <div class="col-sm-12 col-md-6 recipe-title">
         <custom-h2-stub><b>tuna</b></custom-h2-stub>
         <custom-h2-stub>
           fish
@@ -241,7 +22,7 @@ exports[`Recipe page Should match snapshot 1`] = `
             <custom-h3-stub class="text-black">
               <ul>
                 <li><b>tuna</b> <i>1</i></li>
-                <hr>
+                <hr class="ingredient-divider">
               </ul>
             </custom-h3-stub>
           </div>
@@ -249,7 +30,7 @@ exports[`Recipe page Should match snapshot 1`] = `
             <custom-h3-stub class="text-black">
               <ul>
                 <li><b>lemon</b> <i>2</i></li>
-                <hr>
+                <hr class="ingredient-divider">
               </ul>
             </custom-h3-stub>
           </div>

@@ -33,14 +33,11 @@
         width: 100%;
         font-size: 62.5%;
 
-        @media only screen and (max-width: 900px) {
-            font-size: 56.25%;
-        }
-        @media only screen and (max-width: 1200px) {
+        @media only screen and (max-width: 768px) {
             font-size: 56.25%;
         }
         @media only screen and (min-width: 1800px) {
-            font-size: 70%;
+            font-size: 65%;
         }
     }
 

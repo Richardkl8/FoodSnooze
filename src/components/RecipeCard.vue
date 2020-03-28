@@ -48,7 +48,6 @@
 
     .recipe-image {
         max-width: 100%;
-        /*TODO: find transitions*/
         transition:  all .3s ease-out;
     }
 

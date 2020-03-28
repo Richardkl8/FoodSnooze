@@ -3,7 +3,7 @@
 exports[`CustomHeader Should match snapshot 1`] = `
 <header>
   <div class="container">
-    <div class="flex-box">
+    <div class="center">
       <custom-h1-stub class="text-white">
         <router-link-stub to="/" class="text-white"><b id="title">FoodSnooze</b> <b id="title-mobile">FS</b></router-link-stub>
       </custom-h1-stub> <input id="search" placeholder="search for recipes">

@@ -1,6 +1,11 @@
 /* eslint-disable class-methods-use-this */
 import axios from 'axios';
 
+
+// This is the api service that can be injected in a component when needed.
+// Every function returns a new promise.
+// This way you can handle the resolved or rejected state in the component you inject it in.
+
 class ApiService {
     constructor(endPoints, baseUrl) {
         this.endPoints = endPoints;
@@ -10,6 +15,8 @@ class ApiService {
         });
     }
 
+    // The assignment said to query one random meal. I wanted a bit for content for the home page,
+    // Hope this is ok.
     getRandomRecipes() {
         return new Promise((resolve, reject) => {
             axios.all([
@@ -17,13 +24,13 @@ class ApiService {
                 this.https.get(this.endPoints.getRandomRecipe),
                 this.https.get(this.endPoints.getRandomRecipe),
             ]).then(axios.spread((first, second, third) => {
-                const listOfRecipes = [];
-                listOfRecipes.push(first.data.meals[0], second.data.meals[0], third.data.meals[0]);
-                resolve(listOfRecipes);
-            })).catch((error) => {
-                reject(error);
-                this.onError(error);
-            });
+                    const listOfRecipes = [];
+                    listOfRecipes.push(first.data.meals[0], second.data.meals[0], third.data.meals[0]);
+                    resolve(listOfRecipes);
+                })).catch((error) => {
+                    reject(error);
+                    this.onError(error);
+                });
         });
     }
 
@@ -66,12 +73,14 @@ class ApiService {
         });
     }
 
-     onError(error) {
-         console.log(error);
-         // TODO: push to error page
+    // In a real world app this would be the function where I would handle default errors.
+    // E.G send the user to a general error page with the according message.
+    onError(error) {
+        console.log(error);
     }
 }
 
+// Making a singleton instance
 let api;
 const getApiService = (endPoints, baseUrl) => {
     api = api || new ApiService(endPoints, baseUrl);
