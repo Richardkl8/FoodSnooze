@@ -38,14 +38,12 @@
                 </div>
             </div>
         </section>
-        <section id="video">
+        <section v-if="videoUrl" id="video">
             <custom-h2 class="mb-4"><b>Checkout the video</b></custom-h2>
             <div class="row my-5">
                 <div class="col">
 <!--                    TODO: create class for this-->
                     <iframe id="recipe-video"
-                            width="100%"
-                            height="600"
                             :src="videoUrl"
                             frameborder="0" allowfullscreen>
                     </iframe>
@@ -55,9 +53,9 @@
         <section id="relatedFoods">
             <custom-h2 class="mb-4"><b>You may also like</b></custom-h2>
             <div class="row my-5">
-                <div v-for="index in 4"
+                <div v-for="index in 3"
                      :key="index"
-                     class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ">
+                     class="col-xs-12 col-md-4">
                     <recipe-card
                         :recipe="relatedMeals[index]"
                         @click.native="$_goToRecipePage(relatedMeals[index].idMeal)">
@@ -161,9 +159,26 @@
         margin: 1rem 0;
     }
 
+    #recipe-video {
+        width: 100%;
+        height: 60rem;
+    }
+
     .ingredients {
         padding: 3rem 2rem;
         border: solid 2px #2DB396;
         color: #fff;
+    }
+
+    @media screen and (max-width: 768px) {
+        #recipe-video {
+            height: 30rem;
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+        #recipe-video {
+            height: 45rem;
+        }
     }
 </style>

@@ -1,39 +1,35 @@
 <template>
     <div class="container">
         <div class="row my-5">
-            <div class="col-sm-12 col-md-6">
-                <a>
+            <div class="col">
+                <custom-h1>
+                    <b>Welcome to FoodSnooze.</b>
+                </custom-h1>
+                <custom-h3>
+                    Don't know what to cook? Hit <b>snooze</b>, and let us choose!
+                </custom-h3>
+            </div>
+        </div>
+        <div class="row">
+            <div v-for="recipe in recipes" :key="recipe.isMeal" class="col-xs-12 col-md-4">
+                <router-link :to="`/recipe/${recipe.idMeal}`">
                     <recipe-card
-                        @click.native="$_goToRecipePage(recipe.idMeal)"
                         v-show="recipe"
                         :recipe="recipe"
                         :isRelatedFoods="true">
                     </recipe-card>
-                </a>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <custom-h1>
-                    Welcome!
-                </custom-h1>
-                <custom-h3>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis non libero vitae
-                    dictum.
-                    Maecenas id lacinia eros. Maecenas in leo nisi. Aenean pharetra lectus vitae urna bibendum, nec
-                    condimentum ante molestie. Vestibulum at lacus auctor, ornare tellus at, vehicula mi. Proin eget
-                    nulla diam. Nulla facilisi. In hac habitasse platea dictumst. Aliquam et congue magna. Cras odio
-                    tellus, volutpat sed velit eu, accumsan tempus tellus. Aliquam malesuada elit leo, ut rutrum
-                    felis
-                    egestas eu.
-                </custom-h3>
-                <custom-button
-                    class="center"
-                    text="randomize!"
-                    @click.native="getRandomRecipe">
-                </custom-button>
+                </router-link>
             </div>
         </div>
-
+        <section id="snooze-button">
+            <custom-button
+                class="center"
+                text="snooze"
+                @click.native="getRandomRecipe">
+            </custom-button>
+        </section>
     </div>
+
 </template>
 
 <script>
@@ -53,14 +49,14 @@
         },
         data() {
             return {
-                recipe: {},
+                recipes: [],
             };
         },
         methods: {
             getRandomRecipe() {
-                this.apiService.getRandomRecipe()
+                this.apiService.getRandomRecipes()
                     .then((response) => {
-                        this.recipe = response;
+                        this.recipes = response;
                     });
             },
         },
@@ -71,4 +67,9 @@
 </script>
 
 <style lang="scss" scoped>
+    #snooze-button {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+    }
 </style>
