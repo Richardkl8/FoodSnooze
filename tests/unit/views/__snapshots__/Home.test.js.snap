@@ -1,38 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home Should match snapshot 1`] = `
-<div class="container">
-  <div class="row my-5">
-    <div class="col">
-      <custom-h1-stub><b>Welcome to FoodSnooze.</b></custom-h1-stub>
-      <custom-h3-stub>
-        Don't know what to cook? Hit <b>snooze</b>, and let us choose!
-      </custom-h3-stub>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <router-link-stub to="/recipe/12">
-        <recipe-card-stub recipe="[object Object]" isrelatedfoods="true" testid="recipe-card-home"></recipe-card-stub>
-      </router-link-stub>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <router-link-stub to="/recipe/12">
-        <recipe-card-stub recipe="[object Object]" isrelatedfoods="true" testid="recipe-card-home"></recipe-card-stub>
-      </router-link-stub>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <router-link-stub to="/recipe/12">
-        <recipe-card-stub recipe="[object Object]" isrelatedfoods="true" testid="recipe-card-home"></recipe-card-stub>
-      </router-link-stub>
-    </div>
-  </div>
-  <section id="snooze-button">
-    <custom-button-stub testid="snooze-button-home" text="snooze" class="center"></custom-button-stub>
-  </section>
-</div>
-`;
-
 exports[`Home page Should match snapshot 1`] = `
 <div class="container">
   <div class="row my-5">
