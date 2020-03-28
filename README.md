@@ -48,11 +48,24 @@ npm run lint
 
 ## Architectural choices
 ### Frameworks / Dependencies
-* **VueJS**: Since the project at ABN will be writen in VueJS, it's only logical to use it for this assignment. 
+* **VueJS**: Since the project at ABN will be written in VueJS, it's only logical to use it for this assignment. 
 Apart from that, it's a light and intuitive framework with a fast growing community.
 * **VueCLI**: This is used to create the project and to install some basic dependencies. 
-This makes creating a project easier, faster and less prone to errors.
+This makes creating the project easier, faster and less prone to errors.
+* **Babel**: Converts new JS syntax and uses polyfills so your code can run on older browsers. 
+* **ESlint**: Checks the code in your editor for any mistakes or improvements. 
+The Airbnb config is used here because it's the most commonly used so other developer should have no problem reading your code.
 * **Bootstrap(css)**:  Only the grid from Bootstrap is used in this application to speed up the process.
-The rest of styling is done manually to show an understanding of CSS (SCSS).
+The rest of the styling is done manually to show an understanding of CSS (SCSS).
+* **Axios**: HTTP client that is widely used for it's simplicity and options. It also automatically converts the response To JSON. 
+* **Flush-promises**: This is used during unit testing. 
+It *flushes* the resolved promise so you can test whatever should after after the resolved promise.
+
+### Design
+* **ApiService**: This is the service where all the API calls are made. It can be injected in every component where you need it.
+Having all calls in one file gives a nice overview. In a bigger application you would probably use multiple services for all you API's.
+* **Environments** There are currently 3 environment being used in the project. 
+Dev is used for the real API, Mock is used for local development to quickly change the responses (also for faking failing calls) and test is used the unit tests.
+
 
 
