@@ -11,7 +11,6 @@
                 {{recipe.strCategory}}
             </custom-h3>
         </div>
-<!--        <div v-if="isRelatedFoods" class="separator"></div>-->
     </div>
 </template>
 
@@ -24,19 +23,6 @@
             isRelatedFoods: {
                 type: Boolean,
                 default: false,
-            },
-        },
-        computed: {
-            // TODO: REMOVE
-            getIngredients() {
-                const entries = Object.entries(this.recipe);
-                const ingredients = [];
-                entries.forEach(([key, value]) => {
-                    if (key.startsWith('strIngredient') && value) {
-                        ingredients.push(value);
-                    }
-                });
-                return ingredients;
             },
         },
     };

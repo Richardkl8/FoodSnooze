@@ -10,19 +10,6 @@ class ApiService {
         });
     }
 
-    getRandomRecipe() {
-        return new Promise((resolve, reject) => {
-            this.https.get(this.endPoints.getRandomRecipe)
-                .then((response) => {
-                    resolve(response.data.meals[0]);
-                })
-                .catch((error) => {
-                    reject(error);
-                    this.onError(error);
-                });
-        });
-    }
-
     getRandomRecipes() {
         return new Promise((resolve, reject) => {
             axios.all([
@@ -32,7 +19,6 @@ class ApiService {
             ]).then(axios.spread((first, second, third) => {
                 const listOfRecipes = [];
                 listOfRecipes.push(first.data.meals[0], second.data.meals[0], third.data.meals[0]);
-                console.log(listOfRecipes);
                 resolve(listOfRecipes);
             })).catch((error) => {
                 reject(error);

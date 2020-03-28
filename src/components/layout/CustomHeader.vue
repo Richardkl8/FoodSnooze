@@ -34,6 +34,7 @@
         methods: {
             goToSearchPage(query) {
                 // Only executes when the query is different then the current query
+                // and not on an empty query
                 if (this.$route.params.query !== query && query) {
                     this.$router.push(`/search/${query}`);
                 }

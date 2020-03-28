@@ -5,19 +5,21 @@
                 <div class="col-sm-12 col-md-6">
                     <img :src="recipe.strMealThumb"
                          alt="recipe-image"
-                         class="recipe-image mb-4">
+                         class="recipe-image">
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <custom-h2>
-                        <b>
-                            {{recipe.strMeal}}
-                        </b>
+                        <b>{{recipe.strMeal}}</b>
                     </custom-h2>
                     <custom-h2>
                         {{recipe.strCategory}}
                     </custom-h2>
                 </div>
-                <div class="ingredients col-12">
+            </div>
+        </section>
+        <section id="ingredients">
+            <div class="row my-5">
+                <div class="col-12">
                     <custom-h2 class="mb-4 mt-5"><b>Ingredients</b></custom-h2>
                     <div class="row">
                         <div v-for="ingredient in returnListOfIngredients()"
@@ -66,7 +68,7 @@
                      class="col-xs-12 col-md-4">
                     <recipe-card
                         :recipe="relatedMeals[index]"
-                        @click.native="$_goToRecipePage(relatedMeals[index].idMeal)">
+                        @click.native="goToRecipePage(relatedMeals[index].idMeal)">
                     </recipe-card>
                 </div>
             </div>
@@ -76,16 +78,12 @@
 
 <script>
     import RecipeCard from '@/components/RecipeCard.vue';
-    import goToPageMixin from '../mixins/goToPageMixin';
 
     export default {
         name: 'Home',
         components: {
             RecipeCard,
         },
-        mixins: [
-            goToPageMixin,
-        ],
         inject: [
             'apiService',
         ],
@@ -94,6 +92,7 @@
                 recipe: {},
                 relatedMeals: [],
                 videoUrl: '',
+                showPage: false,
             };
         },
         watch: {
@@ -121,6 +120,7 @@
             setYoutubeEmbedUrl() {
                 this.videoUrl = this.recipe.strYoutube.replace('/watch?v=', '/embed/');
             },
+            // Combines the ingredients with the measurements.
             returnListOfIngredients() {
                 const entries = Object.entries(this.recipe);
                 const ingredients = [];
@@ -135,15 +135,21 @@
                         measures.push(value);
                     }
                 });
-
+                // Using html tags to set to style the output.
+                // The if statement is used to filter out empty measurements
                 ingredients.forEach((ingredient, index) => {
                     if (measures[index] !== ' ') {
                         final.push(`<b>${ingredient}</b> <i>${measures[index]}</i>`);
                     } else {
-                        final.push(ingredient);
+                        final.push(`<b>${ingredient}</b>`);
                     }
                 });
                 return final;
+            },
+            goToRecipePage(mealId) {
+                if (this.$route.params.id !== mealId) {
+                    this.$router.push(`/recipe/${mealId}`);
+                }
             },
         },
         created() {

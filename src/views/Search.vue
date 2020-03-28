@@ -9,14 +9,16 @@
                 <div v-for="recipe in foundRecipes"
                      :key="recipe.mealId"
                      class="col-xs-12 col-md-4">
-                    <recipe-card
-                        :recipe="recipe"
-                        @click.native="$_goToRecipePage(relatedMeals[index].idMeal)">
-                    </recipe-card>
+                    <router-link :to="`/recipe/${recipe.idMeal}`">
+                        <recipe-card
+                            testId="recipe-card-search"
+                            :recipe="recipe">
+                        </recipe-card>
+                    </router-link>
                 </div>
             </div>
             <div v-else>
-                <div class="row">
+                <div class="row" testId="error-message-search">
                     <div class="col">
                         <img src="https://images.assetsdelivery.com/compings_v2/lineartist/lineartist1905/lineartist190500646.jpg" alt="crying chef">
                         <custom-h3>
@@ -31,22 +33,18 @@
 
 <script>
     import RecipeCard from '@/components/RecipeCard.vue';
-    import goToPageMixin from '../mixins/goToPageMixin';
 
     export default {
         name: 'Home',
         components: {
             RecipeCard,
         },
-        mixins: [
-            goToPageMixin,
-        ],
         inject: [
             'apiService',
         ],
         watch: {
             $route() {
-                this.getRecipeByQuery(this.$route.params.query);
+                this.getRecipeByQuery();
             },
         },
         data() {

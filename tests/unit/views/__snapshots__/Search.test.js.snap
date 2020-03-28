@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search page Should match snapshot 1`] = `
+<div class="container">
+  <section id="searched-items ">
+    <custom-h2-stub class="mb-4 mt-5"><b>Search results for:</b>
+      fish
+    </custom-h2-stub>
+    <div class="row my-5">
+      <div class="col-xs-12 col-md-4">
+        <router-link-stub to="/recipe/12">
+          <recipe-card-stub recipe="[object Object]" testid="recipe-card-search"></recipe-card-stub>
+        </router-link-stub>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <router-link-stub to="/recipe/12">
+          <recipe-card-stub recipe="[object Object]" testid="recipe-card-search"></recipe-card-stub>
+        </router-link-stub>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <router-link-stub to="/recipe/12">
+          <recipe-card-stub recipe="[object Object]" testid="recipe-card-search"></recipe-card-stub>
+        </router-link-stub>
+      </div>
+    </div>
+  </section>
+</div>
+`;

@@ -14,6 +14,7 @@
             <div v-for="recipe in recipes" :key="recipe.isMeal" class="col-xs-12 col-md-4">
                 <router-link :to="`/recipe/${recipe.idMeal}`">
                     <recipe-card
+                        testId="recipe-card-home"
                         v-show="recipe"
                         :recipe="recipe"
                         :isRelatedFoods="true">
@@ -23,9 +24,10 @@
         </div>
         <section id="snooze-button">
             <custom-button
+                testId="snooze-button-home"
                 class="center"
                 text="snooze"
-                @click.native="getRandomRecipe">
+                @click.native="getRandomRecipes">
             </custom-button>
         </section>
     </div>
@@ -34,15 +36,11 @@
 
 <script>
     import RecipeCard from '@/components/RecipeCard.vue';
-    import goToPageMixin from '../mixins/goToPageMixin';
 
     export default {
         name: 'Home',
         inject: [
             'apiService',
-        ],
-        mixins: [
-            goToPageMixin,
         ],
         components: {
             RecipeCard,
@@ -53,7 +51,7 @@
             };
         },
         methods: {
-            getRandomRecipe() {
+            getRandomRecipes() {
                 this.apiService.getRandomRecipes()
                     .then((response) => {
                         this.recipes = response;
@@ -61,7 +59,7 @@
             },
         },
         created() {
-            this.getRandomRecipe();
+            this.getRandomRecipes();
         },
     };
 </script>
