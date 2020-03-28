@@ -47,6 +47,9 @@ npm run lint
 ```
 
 ## Architectural choices
+### Editor
+* **Webstorm 2019.2**: I use JetBrains Webstorm for all my frontend projects. 
+
 ### Frameworks / Dependencies
 * **VueJS**: Since the project at ABN will be written in VueJS, it's only logical to use it for this assignment. 
 Apart from that, it's a light and intuitive framework with a fast growing community.
@@ -57,15 +60,30 @@ This makes creating the project easier, faster and less prone to errors.
 The Airbnb config is used here because it's the most commonly used so other developer should have no problem reading your code.
 * **Bootstrap(css)**:  Only the grid from Bootstrap is used in this application to speed up the process.
 The rest of the styling is done manually to show an understanding of CSS (SCSS).
-* **Axios**: HTTP client that is widely used for it's simplicity and options. It also automatically converts the response To JSON. 
+* **Axios**: HTTP client that is widely used for it's simplicity and options. It also automatically converts the response to JSON. 
 * **Flush-promises**: This is used during unit testing. 
-It *flushes* the resolved promise so you can test whatever should after after the resolved promise.
+It *flushes* the resolved promise so you can test whatever should happen after after the resolved promise.
 
-### Design
+### Architectural design
 * **ApiService**: This is the service where all the API calls are made. It can be injected in every component where you need it.
 Having all calls in one file gives a nice overview. In a bigger application you would probably use multiple services for all you API's.
-* **Environments** There are currently 3 environment being used in the project. 
-Dev is used for the real API, Mock is used for local development to quickly change the responses (also for faking failing calls) and test is used the unit tests.
+* **Environments**: There are currently 3 environment being used in the project. 
+Dev is used for the real API, Mock is used for local development to quickly change the responses (also for faking failing calls) and test is used for the unit tests.
 
+### Component-reusability
+* **RecipeCard**: An example of a reusable component is the RecipeCard which you can find in the components folder.
+It uses props to inject data from the API which makes it dynamic so it can be used on multiple pages.
+
+## How to become production ready
+* **CICD**: Setting up a pipeline to make deployments to multiple environments and testing automatic.  
+* **Sanitising input fields**: Escape the user input before sending the query to the API to prevent a XSS attack.
+* **Using credentials for private API calls**: Currently there are no credentials for the communication with the Back-end.
+The data we are now requesting is public, but you can imagine private request that should be handled with some sort of token (E.G. JWT).
+* **Create integration tests**: Aside from the unit tests having 90%+ coverage, there must also be integration test.
+This means interface/API testing as well as integration testing with back-end services.
+* **User testing**: Have real users test the application, see where they get stuck and improve UX.
+* **Design improvements**: Currently the design is quite basic and also the mobile responsiveness could be improved.
+* **Lazy loading**: Lazy loading images to improve performance. 
+* **Optional: Implement typeScript**: Typescript can help to build a more robust codebase. 
 
 
