@@ -1,5 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import CustomHeader from '../../../../src/components/layout/CustomHeader.vue';
+import stubs from '../../stubs/stubs';
 
 const mocks = {
     $router: {
@@ -11,28 +12,23 @@ const mocks = {
 };
 
 describe('CustomHeader', () => {
+    let wrapper;
+    beforeEach(() => {
+        wrapper = shallowMount(CustomHeader, {
+            mocks,
+            stubs: stubs.general,
+        });
+    });
+
     afterEach(() => {
-        jest.resetAllMocks();
+        jest.clearAllMocks();
     });
 
     test('Should match snapshot', () => {
-        const wrapper = shallowMount(CustomHeader, {
-            stubs: [
-                'custom-h1',
-                'router-link',
-            ],
-        });
         expect(wrapper).toMatchSnapshot();
     });
 
     test('Should call \'goToSearchPage\' with query when user types in query and presses enter', () => {
-        const wrapper = shallowMount(CustomHeader, {
-            stubs: [
-                'custom-h1',
-                'router-link',
-            ],
-            mocks,
-        });
         const spy = jest.spyOn(wrapper.vm, 'goToSearchPage');
         const searchBar = wrapper.find('input');
 
@@ -44,13 +40,6 @@ describe('CustomHeader', () => {
     });
 
     test('Should reset search bar input when keydown.enter', () => {
-        const wrapper = shallowMount(CustomHeader, {
-            stubs: [
-                'custom-h1',
-                'router-link',
-            ],
-            mocks,
-        });
         const searchBar = wrapper.find('input');
 
         searchBar.setValue('beef');
@@ -61,11 +50,8 @@ describe('CustomHeader', () => {
     });
 
     test('Should not go to page when search bar query is same as url query parameter', () => {
-        const wrapper = shallowMount(CustomHeader, {
-            stubs: [
-                'custom-h1',
-                'router-link',
-            ],
+        const newWrapper = shallowMount(CustomHeader, {
+            stubs: stubs.general,
             mocks: {
                 ...mocks,
                 $route: {
@@ -75,7 +61,7 @@ describe('CustomHeader', () => {
                 },
             },
         });
-        const searchBar = wrapper.find('input');
+        const searchBar = newWrapper.find('input');
 
         searchBar.setValue('beef');
         searchBar.trigger('keydown.enter');
