@@ -24,13 +24,15 @@
                         <b>Ingredients</b>
                     </custom-h2>
                     <div class="row">
-                        <div v-for="ingredient in returnListOfIngredients()"
-                             :key="ingredient"
+                        <div v-for="(ingredient, index) in getIngredients()"
+                             :key="index"
                              class="col-md-6 col-sm-12">
                             <custom-h3 class="text-black">
                                 <ul>
-                                    <li v-html="ingredient"></li>
-                                    <hr class="ingredient-divider">
+                                    <li class="ingredient-list-item">
+                                        <b>{{ingredient.ingredient}}</b>
+                                        <i> {{ingredient.measure}}</i>
+                                    </li>
                                 </ul>
                             </custom-h3>
                         </div>
@@ -123,36 +125,24 @@
                         this.relatedMeals = response;
                     });
             },
-            // Youtube does not let you play video on your website without embedding them,
+            // YouTube does not let you play video on your website without embedding them,
             // Therefore the url needs to be edited
             setYoutubeEmbedUrl() {
                 this.videoUrl = this.recipe.strYoutube.replace('/watch?v=', '/embed/');
             },
-            // Combines the ingredients with the measurements into 1 HTML string.
-            returnListOfIngredients() {
-                const entries = Object.entries(this.recipe);
-                const ingredients = [];
-                const measures = [];
-                const final = [];
-
-                entries.forEach(([key, value]) => {
-                    if (key.startsWith('strIngredient') && value) {
-                        ingredients.push(value);
+            // Combines the ingredients with the measurements into an array of objects
+            getIngredients() {
+                const count = Object.keys(this.recipe).filter((key) => key.startsWith('strIngredient')).length;
+                const results = [];
+                for (let i = 1; i <= count; i += 1) {
+                    if (this.recipe[`strIngredient${i}`]) {
+                        results.push({
+                            ingredient: this.recipe[`strIngredient${i}`],
+                            measure: this.recipe[`strMeasure${i}`],
+                        });
                     }
-                    if (key.startsWith('strMeasure') && value) {
-                        measures.push(value);
-                    }
-                });
-                // Using html tags to set to style the output.
-                // The if statement is used to filter out empty measurements
-                ingredients.forEach((ingredient, index) => {
-                    if (measures[index] !== ' ') {
-                        final.push(`<b>${ingredient}</b> <i>${measures[index]}</i>`);
-                    } else {
-                        final.push(`<b>${ingredient}</b>`);
-                    }
-                });
-                return final;
+                }
+                return results;
             },
             updateRouteWithMealId(mealId) {
                 if (this.$route.params.id !== mealId) {
@@ -178,15 +168,9 @@
     }
 
     li {
-        margin-top: .5rem;
-    }
-
-    hr {
-        border: 1px solid #FF6F59;
-    }
-
-    .ingredient-divider {
-        border: 1px solid #2DB396;
+        margin: .5rem 0;
+        border-bottom: .2rem solid #2DB396;
+        padding-bottom: 1rem;
     }
 
     #recipe-video {
