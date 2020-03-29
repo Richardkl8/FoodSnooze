@@ -36,7 +36,7 @@
     import RecipeCard from '@/components/RecipeCard.vue';
 
     export default {
-        name: 'Home',
+        name: 'Search',
         components: {
             RecipeCard,
         },

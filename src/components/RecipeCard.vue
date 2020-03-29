@@ -4,10 +4,10 @@
              class="recipe-image"
              :src="recipe.strMealThumb">
         <div class="recipe-text center">
-            <custom-h3>
+            <custom-h3 testId="recipe-title">
                 <b>{{recipe.strMeal}}</b>
             </custom-h3>
-            <custom-h3 v-if="showCategory">
+            <custom-h3 v-if="showCategory" testId="recipe-category">
                 {{recipe.strCategory}}
             </custom-h3>
         </div>
@@ -16,6 +16,7 @@
 
 <script>
     export default {
+        name: 'RecipeCard',
         props: {
             recipe: {
                 type: Object,

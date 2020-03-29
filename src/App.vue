@@ -11,6 +11,7 @@
     import CustomFooter from '@/components/layout/CustomFooter.vue';
 
     export default {
+        name: 'App',
         components: {
             CustomHeader,
             CustomFooter,

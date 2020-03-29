@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeCard Should match snapshot 1`] = `
+<div class="recipe-card"><img alt="recipe-image" src="image.jpg" class="recipe-image">
+  <div class="recipe-text center">
+    <custom-h3-stub testid="recipe-title"><b>Tuna</b></custom-h3-stub>
+    <custom-h3-stub testid="recipe-category">
+      Fish
+    </custom-h3-stub>
+  </div>
+</div>
+`;

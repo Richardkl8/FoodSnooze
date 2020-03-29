@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App Should match snapShot 1`] = `
-<div id="app">
-  <custom-header-stub></custom-header-stub>
-  <router-view-stub></router-view-stub>
-  <custom-footer-stub></custom-footer-stub>
-</div>
-`;
-
 exports[`App Should match snapshot 1`] = `
 <div id="app">
   <custom-header-stub></custom-header-stub>

@@ -88,7 +88,7 @@
     import RecipeCard from '@/components/RecipeCard.vue';
 
     export default {
-        name: 'Home',
+        name: 'Recipe',
         components: {
             RecipeCard,
         },
