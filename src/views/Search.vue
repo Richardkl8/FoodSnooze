@@ -44,7 +44,8 @@
             'apiService',
         ],
         watch: {
-            $route() {
+            // eslint-disable-next-line func-names
+            '$route.params.query': function () {
                 this.getRecipeByQuery();
             },
         },

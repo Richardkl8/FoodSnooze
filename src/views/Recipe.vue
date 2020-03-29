@@ -102,7 +102,8 @@
             };
         },
         watch: {
-            $route() {
+            // eslint-disable-next-line func-names
+            '$route.params.id': function () {
                 this.getRecipeById();
             },
         },

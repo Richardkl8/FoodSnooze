@@ -27,7 +27,8 @@
             };
         },
         watch: {
-            $router() {
+            // eslint-disable-next-line func-names
+            '$route.params.id': function () {
                 this.query = '';
             },
         },
