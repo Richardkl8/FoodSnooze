@@ -22,6 +22,12 @@ const routes = [
         name: 'Search',
         component: Search,
     },
+    {
+        // Should route to a 404 page
+        path: '*',
+        name: 'Home',
+        component: Home,
+    },
 ];
 
 const router = new VueRouter({
