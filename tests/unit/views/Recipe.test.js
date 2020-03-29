@@ -22,12 +22,12 @@ const responseGetRecipeByCategory = [
     {
         strMeal: 'tuna',
         strMealThumb: 'image.jpg',
-        idMeal: 'tuna',
+        idMeal: '123',
     },
     {
         strMeal: 'beef',
         strMealThumb: 'image2.jpg',
-        idMeal: 'beef',
+        idMeal: '321',
     },
 ];
 
@@ -55,7 +55,7 @@ describe('Recipe page', () => {
     beforeEach(() => {
         wrapper = shallowMount(Recipe, {
             provide,
-            stubs: stubs.general,
+            stubs,
             mocks,
         });
     });
@@ -70,7 +70,7 @@ describe('Recipe page', () => {
         const setYoutubeEmbedUrlSpy = jest.spyOn(Recipe.methods, 'setYoutubeEmbedUrl');
         const newWrapper = shallowMount(Recipe, {
             provide,
-            stubs: stubs.general,
+            stubs,
             mocks,
         });
         await flushPromises();
@@ -86,8 +86,12 @@ describe('Recipe page', () => {
     });
 
     test('Should return a list of HTML stings with ingredients and measurements combined', () => {
-        const result = ['<b>tuna</b> <i>1</i>', '<b>lemon</b> <i>2</i>', '<b>salt</b>'];
-        expect(wrapper.vm.returnListOfIngredients()).toEqual(result);
+        const result = [
+            { ingredient: 'tuna', measure: '1' },
+            { ingredient: 'lemon', measure: '2' },
+            { ingredient: 'salt', measure: ' ' },
+        ];
+        expect(wrapper.vm.getIngredients()).toEqual(result);
     });
 
     test('Should not show video section when videoUrl is empty', async () => {

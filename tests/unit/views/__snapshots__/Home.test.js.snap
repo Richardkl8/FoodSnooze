@@ -12,18 +12,18 @@ exports[`Home page Should match snapshot 1`] = `
   </div>
   <div class="row">
     <div class="col-xs-12 col-md-4">
-      <router-link-stub to="/recipe/12">
-        <recipe-card-stub recipe="[object Object]" isrelatedfoods="true" testid="recipe-card-home"></recipe-card-stub>
+      <router-link-stub to="/recipe/1">
+        <recipe-card-stub recipe="[object Object]" showcategory="true" testid="recipe-card-home"></recipe-card-stub>
       </router-link-stub>
     </div>
     <div class="col-xs-12 col-md-4">
-      <router-link-stub to="/recipe/12">
-        <recipe-card-stub recipe="[object Object]" isrelatedfoods="true" testid="recipe-card-home"></recipe-card-stub>
+      <router-link-stub to="/recipe/2">
+        <recipe-card-stub recipe="[object Object]" showcategory="true" testid="recipe-card-home"></recipe-card-stub>
       </router-link-stub>
     </div>
     <div class="col-xs-12 col-md-4">
-      <router-link-stub to="/recipe/12">
-        <recipe-card-stub recipe="[object Object]" isrelatedfoods="true" testid="recipe-card-home"></recipe-card-stub>
+      <router-link-stub to="/recipe/3">
+        <recipe-card-stub recipe="[object Object]" showcategory="true" testid="recipe-card-home"></recipe-card-stub>
       </router-link-stub>
     </div>
   </div>

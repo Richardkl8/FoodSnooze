@@ -12,14 +12,13 @@
         </div>
         <div class="row">
             <div v-for="recipe in recipes"
-                 :key="recipe.isMeal"
+                 :key="recipe.idMeal"
                  class="col-xs-12 col-md-4">
                 <router-link :to="`/recipe/${recipe.idMeal}`">
                     <recipe-card
                         testId="recipe-card-home"
-                        v-show="recipe"
                         :recipe="recipe"
-                        :isRelatedFoods="true">
+                        :showCategory="true">
                     </recipe-card>
                 </router-link>
             </div>

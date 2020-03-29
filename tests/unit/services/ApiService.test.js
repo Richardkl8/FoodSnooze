@@ -11,7 +11,7 @@ describe('ApiService', () => {
     });
 
     test('Should set endpoints according to (test) env file', () => {
-        expect(apiService.endPoints.getRandomRecipe).toBe('/recipe');
+        expect(apiService.endPoints.getRandomRecipe).toBe('/random.php');
     });
 
     test('Should set the base url according to (test) env file', async () => {

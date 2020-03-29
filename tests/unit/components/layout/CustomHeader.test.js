@@ -16,7 +16,7 @@ describe('CustomHeader', () => {
     beforeEach(() => {
         wrapper = shallowMount(CustomHeader, {
             mocks,
-            stubs: stubs.general,
+            stubs,
         });
     });
 
@@ -51,7 +51,7 @@ describe('CustomHeader', () => {
 
     test('Should not go to page when search bar query is same as url query parameter', () => {
         const newWrapper = shallowMount(CustomHeader, {
-            stubs: stubs.general,
+            stubs,
             mocks: {
                 ...mocks,
                 $route: {

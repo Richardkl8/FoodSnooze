@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <custom-header></custom-header>
+        <custom-header/>
         <router-view/>
-        <custom-footer></custom-footer>
+        <custom-footer/>
     </div>
 </template>
 
@@ -46,6 +46,10 @@
         width: 100%;
         font-family: Montserrat, serif;
         box-sizing: border-box;
+    }
+
+    a:hover {
+        color: inherit;
     }
 
     #app {

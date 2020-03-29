@@ -46,7 +46,7 @@ describe('Search page', () => {
     beforeEach(() => {
         wrapper = shallowMount(Search, {
             provide,
-            stubs: stubs.general,
+            stubs,
             mocks,
         });
     });
@@ -70,7 +70,7 @@ describe('Search page', () => {
         provide.apiService.getRecipeByQuery.mockResolvedValue(null);
         wrapper = shallowMount(Search, {
             provide,
-            stubs: stubs.general,
+            stubs,
             mocks,
         });
         wrapper.vm.apiService.getRecipeByQuery();

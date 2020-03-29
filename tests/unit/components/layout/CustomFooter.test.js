@@ -5,7 +5,7 @@ import stubs from '../../stubs/stubs';
 describe('CustomFooter', () => {
     test('Should match snapshot', () => {
         const wrapper = shallowMount(CustomFooter, {
-            stubs: stubs.general,
+            stubs,
         });
         expect(wrapper).toMatchSnapshot();
     });

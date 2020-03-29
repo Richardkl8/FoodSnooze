@@ -11,7 +11,7 @@ describe('App', () => {
         });
     });
 
-    test('Should match snapShot', () => {
+    test('Should match snapshot', () => {
         expect(wrapper).toMatchSnapshot();
     });
 

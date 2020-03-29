@@ -4,19 +4,19 @@ import stubs from '../stubs/stubs';
 
 const responseRandomRecipes = [
     {
-        idMeal: '12',
+        idMeal: '1',
         strMealThumb: 'image.jpg',
         strMeal: 'tuna',
         strCategory: 'fish',
     },
     {
-        idMeal: '12',
+        idMeal: '2',
         strMealThumb: 'image.jpg',
         strMeal: 'tuna',
         strCategory: 'fish',
     },
     {
-        idMeal: '12',
+        idMeal: '3',
         strMealThumb: 'image.jpg',
         strMeal: 'tuna',
         strCategory: 'fish',
@@ -35,7 +35,7 @@ describe('Home page', () => {
     beforeEach(() => {
         wrapper = shallowMount(Home, {
             provide,
-            stubs: stubs.general,
+            stubs,
         });
     });
 
@@ -47,7 +47,7 @@ describe('Home page', () => {
         const spy = jest.spyOn(Home.methods, 'getRandomRecipes');
         shallowMount(Home, {
             provide,
-            stubs: stubs.general,
+            stubs: stubs,
         });
         expect(spy).toHaveBeenCalled();
     });

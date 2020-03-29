@@ -7,7 +7,7 @@
             <custom-h3>
                 <b>{{recipe.strMeal}}</b>
             </custom-h3>
-            <custom-h3 v-if="isRelatedFoods">
+            <custom-h3 v-if="showCategory">
                 {{recipe.strCategory}}
             </custom-h3>
         </div>
@@ -20,7 +20,7 @@
             recipe: {
                 type: Object,
             },
-            isRelatedFoods: {
+            showCategory: {
                 type: Boolean,
                 default: false,
             },
@@ -40,9 +40,8 @@
             transform: scale(1.02);
         }
 
-        &:hover .recipe-text > h2 {
+        &:hover .recipe-text {
             text-decoration: underline;
-
         }
     }
 

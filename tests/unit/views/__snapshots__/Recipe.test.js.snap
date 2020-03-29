@@ -21,24 +21,21 @@ exports[`Recipe page Should match snapshot 1`] = `
           <div class="col-md-6 col-sm-12">
             <custom-h3-stub class="text-black">
               <ul>
-                <li><b>tuna</b> <i>1</i></li>
-                <hr class="ingredient-divider">
+                <li class="ingredient-list-item"><b>tuna</b> <i> 1</i></li>
               </ul>
             </custom-h3-stub>
           </div>
           <div class="col-md-6 col-sm-12">
             <custom-h3-stub class="text-black">
               <ul>
-                <li><b>lemon</b> <i>2</i></li>
-                <hr class="ingredient-divider">
+                <li class="ingredient-list-item"><b>lemon</b> <i> 2</i></li>
               </ul>
             </custom-h3-stub>
           </div>
           <div class="col-md-6 col-sm-12">
             <custom-h3-stub class="text-black">
               <ul>
-                <li><b>salt</b></li>
-                <hr class="ingredient-divider">
+                <li class="ingredient-list-item"><b>salt</b> <i> </i></li>
               </ul>
             </custom-h3-stub>
           </div>
