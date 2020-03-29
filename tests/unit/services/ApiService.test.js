@@ -31,10 +31,31 @@ describe('ApiService', () => {
         expect(spy).toHaveBeenCalledTimes(4);
     });
 
-    test('Should return array with combined responses from 3 calls when succeeds', async () => {
+    test('Should return array with combined responses from 3 calls when getRandomRecipes succeeds', async () => {
         apiService.https.get = jest.fn().mockResolvedValue({ data: { meals: [{ test: 1 }] } });
 
         const result = [{ test: 1 }, { test: 1 }, { test: 1 }];
         return apiService.getRandomRecipes().then((data) => expect(data).toEqual(result));
+    });
+
+    test('Should return one object when getRecipeById succeeds', async () => {
+        apiService.https.get = jest.fn().mockResolvedValue({ data: { meals: [{ test: 1 }] } });
+
+        const result = { test: 1 };
+        return apiService.getRecipeById('123').then((data) => expect(data).toEqual(result));
+    });
+
+    test('Should return array of objects when getRecipeByCategory succeeds', async () => {
+        apiService.https.get = jest.fn().mockResolvedValue({ data: { meals: [{ test: 1 }, { test: 2 }] } });
+
+        const result = [{ test: 1 }, { test: 2 }];
+        return apiService.getRecipeByCategory('fish').then((data) => expect(data).toEqual(result));
+    });
+
+    test('Should return array of objects when getRecipeByQuery succeeds', async () => {
+        apiService.https.get = jest.fn().mockResolvedValue({ data: { meals: [{ test: 1 }, { test: 2 }] } });
+
+        const result = [{ test: 1 }, { test: 2 }];
+        return apiService.getRecipeByQuery('beef').then((data) => expect(data).toEqual(result));
     });
 });

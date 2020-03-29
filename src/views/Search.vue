@@ -5,7 +5,7 @@
                 <b>Search results for:</b>
                 {{this.$route.params.query}}
             </custom-h2>
-            <div v-if="foundRecipes.length > 0" class="row my-5">
+            <div v-if="hasFoundRecipes" class="row my-5">
                 <div v-for="recipe in foundRecipes"
                      :key="recipe.mealId"
                      class="col-xs-12 col-md-4">
@@ -20,7 +20,8 @@
             <div v-else>
                 <div class="row" testId="error-message-search">
                     <div class="col">
-                        <img src="https://images.assetsdelivery.com/compings_v2/lineartist/lineartist1905/lineartist190500646.jpg" alt="crying chef">
+                        <img src="https://images.assetsdelivery.com/compings_v2/lineartist/lineartist1905/lineartist190500646.jpg"
+                             alt="crying chef">
                         <custom-h3>
                             <b>Sorry, </b>we couldn't find any recipes for: {{this.$route.params.query}}
                         </custom-h3>
@@ -51,6 +52,11 @@
             return {
                 foundRecipes: [],
             };
+        },
+        computed: {
+            hasFoundRecipes() {
+                return this.foundRecipes.length;
+            },
         },
         methods: {
             getRecipeByQuery() {

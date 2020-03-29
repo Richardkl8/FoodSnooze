@@ -1,5 +1,5 @@
 <template>
-    <footer class="center">
+    <footer class="center-items">
         <div class="container">
             <custom-h3 class="text-white">
                 <b>FoodSnooze</b><br>
@@ -23,7 +23,7 @@
         height: 10rem;
     }
 
-    .center {
+    .center-items {
         display: flex;
         flex-direction: row;
         align-items: center;

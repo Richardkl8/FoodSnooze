@@ -1,3 +1,4 @@
+// Changes the endpoints in the ApiService based on the config in the env files.
 export default {
     getRandomRecipe: process.env.VUE_APP_ENDPOINT_GET_RANDOM_RECIPE,
     getRecipeById: process.env.VUE_APP_ENDPOINT_GET_RECIPE_BY_ID,

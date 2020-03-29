@@ -11,7 +11,9 @@
             </div>
         </div>
         <div class="row">
-            <div v-for="recipe in recipes" :key="recipe.isMeal" class="col-xs-12 col-md-4">
+            <div v-for="recipe in recipes"
+                 :key="recipe.isMeal"
+                 class="col-xs-12 col-md-4">
                 <router-link :to="`/recipe/${recipe.idMeal}`">
                     <recipe-card
                         testId="recipe-card-home"

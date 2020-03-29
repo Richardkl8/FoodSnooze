@@ -83,8 +83,7 @@ This gives the developer more options to edit the styling. For example using a f
 * **Create integration tests**: Aside from the unit tests having 90%+ coverage, there must also be integration test.
 This means interface/API testing as well as integration testing with back-end services.
 * **Using credentials for private API calls**: Currently there are no credentials for the communication with the Back-end.
-The data we are now requesting is public, but you can imagine private request that should be handled with some sort of token (E.G. JWT).
-* **Create prod environment file**: This file would probably 
+The data is requested is public, but you can imagine private request that should be handled with some sort of token (E.G. JWT).
 * **Error handling**: Creating a 404 page, general error page and displaying error messages that help the user understand what is happening.
 * **Lazy loading**: Lazy loading images to improve performance. 
 * **User testing**: Have real users test the application, see where they get stuck and improve UX.

@@ -10,8 +10,10 @@ const responseGetRecipeById = {
     strCategory: 'fish',
     strIngredient1: 'tuna',
     strIngredient2: 'lemon',
+    strIngredient3: 'salt',
     strMeasure1: '1',
     strMeasure2: '2',
+    strMeasure3: ' ',
     strInstructions: 'Bake the tuna',
     strYoutube: 'https://www.youtube.com/watch?v=1ahpSTf_Pvk',
 };
@@ -41,6 +43,9 @@ const mocks = {
         params: {
             id: '123',
         },
+    },
+    $router: {
+        push: jest.fn(),
     },
 };
 
@@ -81,7 +86,7 @@ describe('Recipe page', () => {
     });
 
     test('Should return a list of HTML stings with ingredients and measurements combined', () => {
-        const result = ['<b>tuna</b> <i>1</i>', '<b>lemon</b> <i>2</i>'];
+        const result = ['<b>tuna</b> <i>1</i>', '<b>lemon</b> <i>2</i>', '<b>salt</b>'];
         expect(wrapper.vm.returnListOfIngredients()).toEqual(result);
     });
 
@@ -90,5 +95,13 @@ describe('Recipe page', () => {
         wrapper.vm.$data.videoUrl = '';
         await flushPromises();
         expect(wrapper.find('#video').exists()).toBe(false);
+    });
+
+    test('Should update route with mealId when input is different then current mealId in route', async () => {
+        wrapper.vm.updateRouteWithMealId('123');
+        expect(mocks.$router.push).not.toHaveBeenCalledWith('123');
+
+        wrapper.vm.updateRouteWithMealId('321');
+        expect(mocks.$router.push).toHaveBeenCalledWith('/recipe/321');
     });
 });

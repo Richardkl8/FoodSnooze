@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CustomFooter Should match snapshot 1`] = `
-<footer class="center">
+<footer class="center-items">
   <div class="container">
     <custom-h3-stub class="text-white"><b>FoodSnooze</b><br>
       Who doesn't like to snooze?!

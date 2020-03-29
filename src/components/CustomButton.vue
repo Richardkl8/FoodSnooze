@@ -1,9 +1,7 @@
 <template>
     <div class="button">
         <div class="circle"></div>
-        <a>
-            {{text}}
-        </a>
+        <a>{{text}}</a>
     </div>
 </template>
 

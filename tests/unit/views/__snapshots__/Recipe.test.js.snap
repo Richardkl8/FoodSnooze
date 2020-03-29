@@ -34,6 +34,14 @@ exports[`Recipe page Should match snapshot 1`] = `
               </ul>
             </custom-h3-stub>
           </div>
+          <div class="col-md-6 col-sm-12">
+            <custom-h3-stub class="text-black">
+              <ul>
+                <li><b>salt</b></li>
+                <hr class="ingredient-divider">
+              </ul>
+            </custom-h3-stub>
+          </div>
         </div>
       </div>
     </div>

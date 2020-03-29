@@ -1,7 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import axios from 'axios';
 
-
 // This is the api service that can be injected in a component when needed.
 // Every function returns a new promise.
 // This way you can handle the resolved or rejected state in the component you inject it in.
@@ -15,7 +14,7 @@ class ApiService {
         });
     }
 
-    // The assignment said to query one random meal. I wanted a bit for content for the home page,
+    // The assignment said to query one random meal. I wanted a bit more content for the home page,
     // Hope this is ok.
     getRandomRecipes() {
         return new Promise((resolve, reject) => {

@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="container">
-            <div class="center">
+            <div class="center-items">
                 <custom-h1 class="text-white">
                     <router-link class="text-white" to="/">
                         <b id="title">FoodSnooze</b>
@@ -68,7 +68,7 @@
         }
     }
 
-    .center {
+    .center-items {
         display: flex;
         flex-direction: row;
         justify-content: space-between;

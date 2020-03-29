@@ -20,15 +20,16 @@
         <section id="ingredients">
             <div class="row my-5">
                 <div class="col-12">
-                    <custom-h2 class="mb-4 mt-5"><b>Ingredients</b></custom-h2>
+                    <custom-h2 class="mb-4 mt-5">
+                        <b>Ingredients</b>
+                    </custom-h2>
                     <div class="row">
                         <div v-for="ingredient in returnListOfIngredients()"
                              :key="ingredient"
                              class="col-md-6 col-sm-12">
                             <custom-h3 class="text-black">
                                 <ul>
-                                    <li v-html="ingredient">
-                                    </li>
+                                    <li v-html="ingredient"></li>
                                     <hr class="ingredient-divider">
                                 </ul>
                             </custom-h3>
@@ -50,25 +51,30 @@
             </div>
         </section>
         <section v-if="videoUrl" id="video">
-            <custom-h2 class="my-5"><b>Checkout the video</b></custom-h2>
+            <custom-h2 class="my-5">
+                <b>Checkout the video</b>
+            </custom-h2>
             <div class="row mb-5">
                 <div class="col">
                     <iframe id="recipe-video"
                             :src="videoUrl"
-                            frameborder="0" allowfullscreen>
+                            frameborder="0"
+                            allowfullscreen>
                     </iframe>
                 </div>
             </div>
         </section>
         <section id="relatedFoods">
-            <custom-h2 class="mt-5 mb-4"><b>You may also like</b></custom-h2>
+            <custom-h2 class="mt-5 mb-4">
+                <b>You may also like</b>
+            </custom-h2>
             <div class="row my-5">
                 <div v-for="index in 3"
                      :key="index"
                      class="col-xs-12 col-md-4">
                     <recipe-card
                         :recipe="relatedMeals[index]"
-                        @click.native="goToRecipePage(relatedMeals[index].idMeal)">
+                        @click.native="updateRouteWithMealId(relatedMeals[index].idMeal)">
                     </recipe-card>
                 </div>
             </div>
@@ -109,6 +115,7 @@
                         this.setYoutubeEmbedUrl(response.strYoutube);
                     });
             },
+            // Uses the category of the recipe the user requested to fetch related recipes
             getRecipeByCategory(category) {
                 this.apiService.getRecipeByCategory(category)
                     .then((response) => {
@@ -120,7 +127,7 @@
             setYoutubeEmbedUrl() {
                 this.videoUrl = this.recipe.strYoutube.replace('/watch?v=', '/embed/');
             },
-            // Combines the ingredients with the measurements.
+            // Combines the ingredients with the measurements into 1 HTML string.
             returnListOfIngredients() {
                 const entries = Object.entries(this.recipe);
                 const ingredients = [];
@@ -146,7 +153,7 @@
                 });
                 return final;
             },
-            goToRecipePage(mealId) {
+            updateRouteWithMealId(mealId) {
                 if (this.$route.params.id !== mealId) {
                     this.$router.push(`/recipe/${mealId}`);
                 }
